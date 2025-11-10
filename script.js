@@ -115,6 +115,7 @@ function renderTasks() {
                 <select onchange="updateTaskStatus(${task.id}, this.value)">
                     <option value="In Progress" ${task.status === 'In Progress' ? 'selected' : ''}>In Progress</option>
                     <option value="Completed" ${task.status === 'Completed' ? 'selected' : ''}>Completed</option>
+                    <option value="Overdue" ${task.status} === 'Overdue:  ? 'selected' : ''}>Overdue</option> 
                 </select>
                 <button onclick="deleteTask(${task.id})">Delete</button>
             </div>

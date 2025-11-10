@@ -17,22 +17,22 @@ h1, h3 {
     margin: 10px 0; 
     padding: 15px;
     border-radius: 5px;
-    background-color: rgb(247, 55, 80);
+    background-color: rgb(177, 36, 17);
 }
 
 .completed { 
-    background-color: #050705; 
+    background-color: rgb(71, 240, 37); 
     border-left: 4px solid #07130a;
 }
 
 .overdue { 
-    background-color: #ffe6e6; 
-    border-left: 4px solid #dc3545;
+    background-color: #ffdc15; 
+    border-left: 4px solid #220205;
 }
 
 .in-progress { 
-    background-color: #fff3cd; 
-    border-left: 4px solid #ffc107;
+    background-color: #ff75dd; 
+    border-left: 4px solid #290602;
 }
 
 #taskList { 
@@ -51,9 +51,9 @@ input, select {
 button {
     padding: 8px 16px;
     margin: 5px;
-    border: 1px solid #f56ca5;
+    border: 1px solid #240411;
     border-radius: 4px;
-    background-color: #611639;
+    background-color: #af2f6b;
     color: white;
     cursor: pointer;
 }
