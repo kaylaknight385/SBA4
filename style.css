@@ -1,0 +1,9 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-image: url('https://i10.glitter-graphics.org/pub/92/92940xfnfelr2le.gif');
+    background-attachment: fixed;
+    background-size:contain;
+}
