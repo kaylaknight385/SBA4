@@ -5,7 +5,7 @@ let currentCategoryFilter = 'all';
 window.onload = function() {
     loadTasks();
     renderTasks();
-    checkOverDueTasks();
+    checkOverdueTasks();
 };
 
 function loadTasks() {
@@ -15,7 +15,7 @@ function loadTasks() {
     }
 }
 
-function savedTasks() {
+function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
@@ -26,21 +26,55 @@ function addTask() {
 
     if (!taskName || !taskCategory || !taskDeadline) {
         alert('Please fill in all fields');
-        return;}
+        return;
+    }
+
+    const newTask = {
+        id: Date.now(),
+        name: taskName,
+        category: taskCategory,
+        deadline: taskDeadline,
+        status: 'In Progress'
+    };
+
+    tasks.push(newTask);
+    saveTasks();
+    renderTasks();
+    
+    document.getElementById('taskName').value = '';
+    document.getElementById('taskCategory').value = '';
+    document.getElementById('taskDeadline').value = '';
 }
 
-const newTask = {
-    id: Date.now(), 
-    name: taskName,
-    category: taskCategory,
-    deadline: taskDeadline,
-    status: 'In Progress'
-};
+function updateTaskStatus(taskId, newStatus) {
+    const task = tasks.find(task => task.id === taskId);
+    if (task) {
+        task.status = newStatus;
+        saveTasks();
+        renderTasks();
+    }
+}
 
-tasks.push(newTask)
+function deleteTask(taskId) {
+    if (confirm('Are you sure you want to delete this task?')) {
+        tasks = tasks.filter(task => task.id !== taskId);
+        saveTasks();
+        renderTasks();
+    }
+}
 
-savedTasks();
-renderTasks();
+function checkOverdueTasks() {
+    const today = new Date().toISOString().split('T')[0];
+    
+    tasks.forEach(task => {
+        if (task.status !== 'Completed' && task.deadline < today) {
+            task.status = 'Overdue';
+        }
+    });
+    
+    saveTasks();
+    renderTasks();
+}
 
 function filterTasks() {
     currentStatusFilter = document.getElementById('statusFilter').value;
@@ -50,23 +84,28 @@ function filterTasks() {
 
 function renderTasks() {
     const taskList = document.getElementById('taskList');
+    
     let filteredTasks = tasks.filter(task => {
         const statusMatch = currentStatusFilter === 'all' || task.status === currentStatusFilter;
         const categoryMatch = currentCategoryFilter === 'all' || task.category === currentCategoryFilter;
         return statusMatch && categoryMatch;
     });
+
     taskList.innerHTML = '';
+
     if (filteredTasks.length === 0) {
         const emptyMessage = document.createElement('li');
         emptyMessage.textContent = 'No tasks found. Add a task above!';
         emptyMessage.style.color = '#666';
         emptyMessage.style.fontStyle = 'italic';
         taskList.appendChild(emptyMessage);
-        return;}
+        return;
+    }
 
     filteredTasks.forEach(task => {
         const listItem = document.createElement('li');
         listItem.className = `task-item ${task.status.toLowerCase().replace(' ', '-')}`;
+        
         listItem.innerHTML = `
             <div>
                 <strong>${task.name}</strong> 
