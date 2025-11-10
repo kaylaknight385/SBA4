@@ -24,3 +24,40 @@ h1, h3 {
     background-color: #050705; 
     border-left: 4px solid #07130a;
 }
+
+.overdue { 
+    background-color: #ffe6e6; 
+    border-left: 4px solid #dc3545;
+}
+
+.in-progress { 
+    background-color: #fff3cd; 
+    border-left: 4px solid #ffc107;
+}
+
+#taskList { 
+    list-style-type: none; 
+    padding: 0; 
+}
+
+input, select {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #9b0b0b;
+    border-radius: 4px;
+    width: 200px;
+}
+
+button {
+    padding: 8px 16px;
+    margin: 5px;
+    border: 1px solid #f56ca5;
+    border-radius: 4px;
+    background-color: #611639;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ec0404;
+}
