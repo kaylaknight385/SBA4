@@ -7,3 +7,20 @@ body {
     background-attachment: fixed;
     background-size:contain;
 }
+
+h1, h3 {
+    color: #140101;
+}
+
+.task-item { 
+    border: 1px solid #0e0b0b; 
+    margin: 10px 0; 
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(247, 55, 80);
+}
+
+.completed { 
+    background-color: #050705; 
+    border-left: 4px solid #07130a;
+}
