@@ -8,6 +8,47 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Tadk Manager</h1>
+    <h1>Task Manager</h1>
+    <div>
+        <h3>ADD NEW TASK</h3>
+        <input type="text" id="taskName" placeholder="Task Name" required>
+        <select id="taskCategory" required>\
+            <option value="">Categories</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Workout">Workout</option>
+            <option value="Quick Bite">Quick Bite</option>
+            <option value="Cleaning">Cleaning</option>
+        </select>
+        <input type="date" id="taskDeadline" required>
+        <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <div>
+        <h3>Filter Tasks</h3>
+        <select id="statusFilter" onchange="filterTasks"()>
+            <option value="all">All Statuses</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Overdue">Overdue</option>
+        </select>
+        <select id="categoryFilter" onchange="filterTasks"()>
+            <option value="all">All Categories</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Workout">Workout</option>
+            <option value="Quick Bite">Quick Bite</option>
+            <option value="Cleaning">Cleaning</option>
+        </select>  
+    </div>
+
+    <div>
+        <h3>Your Task</h3>
+        <ul id="taskList">
+            <li class="task-item">Try Jpresso Thai Tea next Sunday - Quick Bite - </li>
+            <li class="task-item">Get new Fenty Beauty Lip Gloss - Shopping</li>
+            <li class="task-item">Wash car - Cleaning</li>
+            <li class="task-item">Meet at boxing gym - Workout</li>
+            <li class="task-item">Get groceries - Shopping</li>
+        </ul>
+    </div>
 </body>
 </html>
