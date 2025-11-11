@@ -13,11 +13,12 @@ Local storage persistence
 
 Delete tasks
 
-Technologies Used
+Technologies Used:
+
 HTML5
 
-CSS3
+CSS
 
-Vanilla JavaScript
+JavaScript
 
 Local Storage API
